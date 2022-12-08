@@ -1,0 +1,48 @@
+@font-face {
+    font-family: digitalMono;
+    src: url("../fonts/digital-7mono.ttf");
+}
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.clock {
+    margin-top: 100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+#counter {
+    font-family: digitalMono;
+    font-weight: 500;
+    font-size: 60px;
+    text-align: center;
+    padding-top: 110px;
+}
+
+.buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    font-size: 14px;
+    font-weight: bold;
+    background-color: white;
+    transition: all .5s;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0 3px;
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+button:hover {
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(136, 165, 191, 0.48) -6px -2px 16px 0px;
+}

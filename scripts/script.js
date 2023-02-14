@@ -2,13 +2,13 @@ let hour = 0;
 let minute = 0;
 let seconds = 0;
 let time = 1000;
-let cronometro;
+let stopwatch;
 let onStart = false;
 let text = document.querySelector('#counter');
 
 function startCount() {
   if (!onStart) {
-    cronometro = setInterval(timer, time);
+    stopwatch = setInterval(timer, time);
     onStart = true;
   } else {
     return;
@@ -17,7 +17,7 @@ function startCount() {
 
 function pauseCount() {
   if (onStart) {
-    clearInterval(cronometro);
+    clearInterval(stopwatch);
     onStart = false;
   } else {
     return;
@@ -25,7 +25,7 @@ function pauseCount() {
 }
 
 function clearCount() {
-  clearInterval(cronometro);
+  clearInterval(stopwatch);
   hour = 0;
   minute = 0;
   seconds = 0;

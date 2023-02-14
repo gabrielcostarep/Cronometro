@@ -1,56 +1,55 @@
-var hour = 0;
-var minute = 0;
-var seconds = 0;
+let hour = 0;
+let minute = 0;
+let seconds = 0;
+let time = 1000;
+let cronometro;
+let onStart = false;
+let text = document.querySelector('#counter');
 
-var time = 1000; /* Determina os milisegundos que o contador irá funcionar */
-var cron;
-
-/* Iniciar o cronometro */
 function startCount() {
-    cron = setInterval(timer, time);
+  if (!onStart) {
+    cronometro = setInterval(timer, time);
+    onStart = true;
+  } else {
+    return;
+  }
 }
 
-/* Pausar o cronometro */
 function pauseCount() {
-    clearInterval(cron);
+  if (onStart) {
+    clearInterval(cronometro);
+    onStart = false;
+  } else {
+    return;
+  }
 }
 
-/* Zerar o cronometro */
-function stopCount() {
-    clearInterval(cron);
-    hour = 0;
-    minute = 0;
-    seconds = 0;
-    document.getElementById("counter").innerText = '00:00:00';
+function clearCount() {
+  clearInterval(cronometro);
+  hour = 0;
+  minute = 0;
+  seconds = 0;
+  onStart = false;
+  text.innerText = '00:00:00';
 }
 
-/* Funcao para os digitos ficarem sempre com duas casas decimais */
 function count(element) {
-    // Utilizando operador ternario:
-    return element < 10 ? '0' + element : element;
-    
-    // Utilizando if
-//     if (element < 10) {
-//         return '0' + element
-//     } else {
-//         element
-//     }
+  return element < 10 ? `0${element}` : element;
 }
 
-/* Funcao principal do cronometro */
 function timer() {
-    seconds++
+  seconds++;
 
-    if (seconds == 60) {
-        seconds = 0;
-        minute++
-    }
+  if (seconds == 60) {
+    seconds = 0;
+    minute++;
+  }
 
-    if (minute == 60) {
-        minute = 00;
-        hour++
-    }
+  if (minute == 60) {
+    minute = 00;
+    hour++;
+  }
 
-    var format = count(hour) + ':' + count(minute) + ':' + count(seconds);
-    document.getElementById("counter").innerText = format;
+  let format = `${count(hour)}:${count(minute)}:${count(seconds)}`;
+  text.innerText = format;
 }
